@@ -6,8 +6,15 @@ let postsRouter = require('./routes/posts');
 let callbackRequestRouter = require('./routes/callback-requests');
 
 
-// connecting to the database is an asynchronous call - don't know how much time it will take
-mongoose.connect('mongodb://localhost/travels', { useNewUrlParser: true, useUnifiedTopology: true });
+// CONNECT TO DATABASE
+const url = 'mongodb://localhost/travels';
+mongoose.Promise = global.Promise;
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+    console.log("connected to the database");
+}).catch((error) => {
+    console.log("Not connected to the database: ", error)
+});
+
 let imageStorage = multer.diskStorage({
   destination: (request, file, callback) => callback(null, 'public/images'),
   filename: (request, file, callback) => callback(null, file.originalname)
