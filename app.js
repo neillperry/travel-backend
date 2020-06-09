@@ -1,5 +1,5 @@
 let express = require('express');
-let server = express();
+let app = express();
 let mongoose = require('mongoose');
 let multer = require('multer');
 let postsRouter = require('./routes/posts');
@@ -20,24 +20,24 @@ let imageStorage = multer.diskStorage({
   filename: (request, file, callback) => callback(null, file.originalname)
 });
 
-server.use(express.json());
-server.use(multer({storage: imageStorage}).single('imageFile'));
-server.use('/posts', postsRouter);
-server.use('/callback-requests', callbackRequestRouter);
+app.use(express.json());
+app.use(multer({storage: imageStorage}).single('imageFile'));
+app.use('/posts', postsRouter);
+app.use('/callback-requests', callbackRequestRouter);
 
 /*
 let path = require('path');
 
-server.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
 })
 
-server.get('/admin', (req, res) => {
+app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/admin/index.html'));
 })
 
 */
 
 
-server.use(express.static('public'));
-server.listen(3000, () => console.log("listening on Port 3000"));
+app.use(express.static('public'));
+app.listen(3000, () => console.log("listening on Port 3000"));
