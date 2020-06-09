@@ -25,19 +25,6 @@ app.use(multer({storage: imageStorage}).single('imageFile'));
 app.use('/posts', postsRouter);
 app.use('/callback-requests', callbackRequestRouter);
 
-/*
-let path = require('path');
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/public/index.html'));
-})
-
-app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname + '/public/admin/index.html'));
-})
-
-*/
-
 
 app.use(express.static('public'));
 app.listen(3000, () => console.log("listening on Port 3000"));
