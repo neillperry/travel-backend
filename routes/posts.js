@@ -48,11 +48,11 @@ router.delete('/:id', async (request, response) => {
    response.send('Post Deleted');
 });
 
-router.put('/:id'), async (request, response) => {
-  console.log("WHereis the PUT request?");
+router.put('/:id', async (request, response) => {
+  console.log("Whereis the PUT request?");
   let id = request.params.id;
   await Post.updateOne({id: id}, request.body);
   response.send('Post Updated');
-}
+});
 
 module.exports = router;

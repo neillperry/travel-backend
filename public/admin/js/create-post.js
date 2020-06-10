@@ -1,3 +1,7 @@
+//Link for Testing: https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg
+
+
+
 // grab the data from the website and assign it to the following variables
 let createForm = document.querySelector('.create-post-form');
 let createTitle = document.querySelector('#create-title');
