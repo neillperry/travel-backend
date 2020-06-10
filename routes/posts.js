@@ -22,7 +22,11 @@ router.post('/', async (request, response) => {
     if (reqBody.imageURL) {
       imgPath = reqBody.imageURL;
     } else {
-      imgPath = request.file.path.substring(request.file.path.indexOf('/'), request.file.path.length);
+      if (request.file) {
+        imgPath = request.file.path.substring(request.file.path.indexOf('/'), request.file.path.length);
+      } else {
+        imgPath = "/src/images/photos";
+      }
     }
 
     let newPost = new Post({
