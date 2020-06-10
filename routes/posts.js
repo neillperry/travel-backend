@@ -11,7 +11,7 @@ router.get('/', async (request, response) => {
 
 router.get('/:id', async (request, response) => {
     let id = request.params.id
-    let post = await Post.findOne(id);
+    let post = await Post.findOne({id: id});
     response.send(post);
 });
 

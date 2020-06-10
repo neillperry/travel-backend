@@ -8,8 +8,11 @@
   let id;
 
   articlesBlock.addEventListener('click', async function(e) {
+
       if(e.target.classList.contains('btn-edit')) {
+
         id = e.target.parentNode.parentNode.querySelector('.id').value;
+
         let postInfo = await fetch('http://localhost:3000/posts/' + id)
                 .then((response) => response.json())
                 .then((data) => data);
@@ -41,7 +44,7 @@
                text: textArea.value,
                description: textArea.value.substring(0, textArea.value.indexOf('.') + 1)
              })
-        }).then((response) => response.text()).then(() = window.history.go());
+        }).then((response) => response.text()).then(() => window.history.go());
     })
 
 

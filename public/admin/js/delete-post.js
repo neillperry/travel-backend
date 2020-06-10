@@ -1,6 +1,6 @@
 let articlesBlock = document.querySelector('.articles');
 
-articlesBlock.addEventListener('click', function(e) =>
+articlesBlock.addEventListener('click', function(e) {
     if(e.target.classList.contains('btn-remove')) {
         let id = e.target.parentNode.parentNode.querySelector('.id').value;
 
@@ -8,5 +8,4 @@ articlesBlock.addEventListener('click', function(e) =>
              method: 'DELETE'
         }).then((response) => response.text()).then(() => window.history.go());
     }
-
-);
+});
