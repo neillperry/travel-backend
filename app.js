@@ -2,10 +2,11 @@ let express = require('express');
 let app = express();
 let mongoose = require('mongoose');
 let multer = require('multer');
-let cors = require('cors');
 let postsRouter = require('./routes/posts');
 let callbackRequestRouter = require('./routes/callback-requests');
 let emailRouter = require('./routes/emails');
+
+app.set('view engine', 'ejs');
 
 // CONNECT TO DATABASE
 const url = 'mongodb://localhost/travels';
@@ -23,18 +24,19 @@ let imageStorage = multer.diskStorage({
 
 
 app.use(express.json());
-app.use(cors());
 app.use(multer({storage: imageStorage}).single('imageFile'));
 app.use('/posts', postsRouter);
 app.use('/callback-requests', callbackRequestRouter);
 app.use('/emails', emailRouter);
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-    next();
-});
+app.get('/sight', (request, response) => {
+   response.render('sight', {
+      title: 'Big Ben',
+      imageURL: 'https://cdn.pixabay.com/photo/2017/06/11/18/03/london-2393098__340.jpg',
+      date: '2021-07-04',
+      text: 'Big Ben text.'
+   })
+})
 
 
 app.use(express.static('public'));
