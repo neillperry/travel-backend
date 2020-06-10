@@ -2,9 +2,9 @@ let express = require('express');
 let app = express();
 let mongoose = require('mongoose');
 let multer = require('multer');
+let cors = require('cors');
 let postsRouter = require('./routes/posts');
 let callbackRequestRouter = require('./routes/callback-requests');
-
 
 // CONNECT TO DATABASE
 const url = 'mongodb://localhost/travels';
@@ -21,6 +21,7 @@ let imageStorage = multer.diskStorage({
 });
 
 app.use(express.json());
+app.use(cors());
 app.use(multer({storage: imageStorage}).single('imageFile'));
 app.use('/posts', postsRouter);
 app.use('/callback-requests', callbackRequestRouter);

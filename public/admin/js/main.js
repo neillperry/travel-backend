@@ -45,7 +45,7 @@ async function addCallbackRequests() {
   let requestsBlock = document.querySelector('#v-pills-callback');
   requestsBlock.innerHTML = '';
   let i = 1;
-  posts.forEach((request) => {
+  requests.forEach((request) => {
      let requestHTML = `
        <article class="d-flex justify-content-between align-items-center article-inline">
          <div class="num w5">${i++}</div>

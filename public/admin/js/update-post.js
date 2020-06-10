@@ -13,9 +13,8 @@
 
         id = e.target.parentNode.parentNode.querySelector('.id').value;
 
-        let postInfo = await fetch('http://localhost:3000/posts/' + id)
-                .then((response) => response.json())
-                .then((data) => data);
+        let postInfo = await fetch('http://localhost:3000/posts/' + id).then(
+                 (response) => response.json()).then((data) => data);
 
 
         titleInput.value = postInfo.title;
@@ -35,7 +34,7 @@
     updateForm.addEventListener('submit', function(e) {
         e.preventDefault();
         fetch('http://localhost:3000/posts/' + id, {
-             method: 'PUT',
+            method: 'PUT',
              headers: {
                'Content-Type': 'application/json'
              },

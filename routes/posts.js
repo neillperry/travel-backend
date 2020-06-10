@@ -6,9 +6,7 @@ let router = express.Router();
 
 router.get('/', async (request, response) => {
     let posts = await Post.find();
-    console.log("get those posts, knuckleheads");
-    console.log(posts);
-    response.send(testPost);
+    response.send(posts);
 });
 
 router.get('/:id', async (request, response) => {
