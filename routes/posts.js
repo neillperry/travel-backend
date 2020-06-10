@@ -1,5 +1,5 @@
 // manages the routes for creating, deleting, updating, and reading posts
-let Post = require('../models/post.js').Post;
+let Post = require('../models/post').Post;
 let uniqid = require('uniqid');
 let express = require('express');
 let router = express.Router();

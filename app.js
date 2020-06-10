@@ -5,6 +5,7 @@ let multer = require('multer');
 let cors = require('cors');
 let postsRouter = require('./routes/posts');
 let callbackRequestRouter = require('./routes/callback-requests');
+let emailRouter = require('./routes/emails');
 
 // CONNECT TO DATABASE
 const url = 'mongodb://localhost/travels';
@@ -26,6 +27,7 @@ app.use(cors());
 app.use(multer({storage: imageStorage}).single('imageFile'));
 app.use('/posts', postsRouter);
 app.use('/callback-requests', callbackRequestRouter);
+app.use('/emails', emailRouter);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
