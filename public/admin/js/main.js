@@ -33,7 +33,7 @@ async function addPosts() {
          <div class="date w30">${post.date}</div>
          <div class="country w20">${post.country}</div>
          <div class="edit w10"><button class="btn btn-link btn-edit">Edit</button></div>
-         <div class="remove w5"><button class="btn btn-link btn-remove">Remove</button></div>
+         <div class="remove w5"><button class="btn btn-link btn-remove">&#x274C;</button></div>
        </article>`;
 
        articles.insertAdjacentHTML('beforeend', postHTML);
@@ -50,9 +50,9 @@ async function addCallbackRequests() {
        <article class="d-flex justify-content-between align-items-center article-inline">
          <div class="num w5">${i++}</div>
          <input class="id" type="hidden" value="${request.id}">
-         <div class="name w60">${request.phone}</div>
+         <div class="name w60">${request.phoneNumber}</div>
          <div class="date w30">${request.date}</div>
-         <div class="remove w5"><button class="btn btn-link btn-remove">Remove</button></div>
+         <div class="remove w5"><button class="btn btn-link btn-remove">&#x274C;</button></div>
        </article>`;
 
        requestsBlock.insertAdjacentHTML('beforeend', requestHTML);

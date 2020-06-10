@@ -3,8 +3,6 @@
 
 let callMeForm = document.querySelector('.call-me-form');
 
-
-
 document.addEventListener('DOMContentLoaded', async function() {
    let posts = await getPosts();
    let articles = document.querySelector('.articles');
@@ -27,7 +25,9 @@ document.addEventListener('DOMContentLoaded', async function() {
    });
 });
 
+
 callMeForm.addEventListener('submit', function(e) {
+      console.log('mashed callback button');
      e.preventDefault();
      let phoneInput = callMeForm.querySelector('input');
 
@@ -39,5 +39,7 @@ callMeForm.addEventListener('submit', function(e) {
            body: JSON.stringify({
                phoneNumber: phoneInput.value
            })
-     }).then((response) => response.text()).then(() => alert('We will call you back as soon as possible'));
-})
+      }
+    ).then((response) => response.text()).then(() => alert('We will call you back as soon as possible'));
+
+  });

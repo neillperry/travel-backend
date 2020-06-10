@@ -20,6 +20,7 @@ let imageStorage = multer.diskStorage({
   filename: (request, file, callback) => callback(null, file.originalname)
 });
 
+
 app.use(express.json());
 app.use(cors());
 app.use(multer({storage: imageStorage}).single('imageFile'));

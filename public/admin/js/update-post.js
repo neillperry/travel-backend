@@ -1,6 +1,8 @@
 // This is the JavaScript code to update posts to the Admin Page
+//Link for Testing: https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg
+
 {
-  let articlesBlock = document.querySelector('.update-post-btn');
+  let articlesBlock = document.querySelector('.articles');
   let updateForm = document.querySelector('.update-post-form');
 
   let titleInput = document.querySelector('#update-title');
@@ -32,7 +34,9 @@
     });
 
     updateForm.addEventListener('submit', function(e) {
+        console.log("updateForm Event Listener on update-post.js!!");
         e.preventDefault();
+
         fetch('http://localhost:3000/posts/' + id, {
             method: 'PUT',
              headers: {

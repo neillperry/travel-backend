@@ -1,8 +1,9 @@
 // manages the routes for creating, deleting, updating, and reading posts
-let uniqid = require('uniqid');
 let Post = require('../models/post.js').Post;
+let uniqid = require('uniqid');
 let express = require('express');
 let router = express.Router();
+let path = require('path');
 
 router.get('/', async (request, response) => {
     let posts = await Post.find();
@@ -24,8 +25,6 @@ router.post('/', async (request, response) => {
     } else {
       if (request.file) {
         imgPath = request.file.path.substring(request.file.path.indexOf('/'), request.file.path.length);
-      } else {
-        imgPath = "/src/images/photos";
       }
     }
 
@@ -50,6 +49,7 @@ router.delete('/:id', async (request, response) => {
 });
 
 router.put('/:id'), async (request, response) => {
+  console.log("WHereis the PUT request?");
   let id = request.params.id;
   await Post.updateOne({id: id}, request.body);
   response.send('Post Updated');

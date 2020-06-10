@@ -1,7 +1,7 @@
 
 # PROBLEM:
 
-The tutorial says to install MongoDB using homebrew, but that doesn't work. MongoDB has been removed from homebrew. So following the tutorial's instructions will not work. To use MongoDB with this project, we have to install and use the community edition. Follow the instructions below:
+I am unable to install MongoDB locally because it has been removed from homebrew. So to use MongoDB with this project, we have to install and use the community edition. Follow the instructions below:
 
 
 **How to Install and Run Mongo DB with this Project:**
