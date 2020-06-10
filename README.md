@@ -9,8 +9,8 @@ The tutorial says to install MongoDB using homebrew, but that doesn't work. Mong
 1. Install Homebrew on your computer: https://brew.sh/
 
 2. Install MongoDB Community Edition (2 commands):
-    a. brew tap mongodb/brew
-    b. brew install mongodb-community@4.2
+    @1. brew tap mongodb/brew
+    @2. brew install mongodb-community@4.2
 
 3. Download and Install the application [Compass](https://docs.mongodb.com/compass/master/install/)
 
