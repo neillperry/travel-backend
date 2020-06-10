@@ -6,7 +6,9 @@ let router = express.Router();
 
 router.get('/', async (request, response) => {
     let posts = await Post.find();
-    response.send(posts);
+    console.log("get those posts, knuckleheads");
+    console.log(posts);
+    response.send(testPost);
 });
 
 router.get('/:id', async (request, response) => {
@@ -54,6 +56,5 @@ router.put('/:id'), async (request, response) => {
   await Post.updateOne({id: id}, request.body);
   response.send('Post Updated');
 }
-
 
 module.exports = router;
