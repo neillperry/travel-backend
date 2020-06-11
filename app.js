@@ -42,6 +42,7 @@ app.get('/sight', async (request, response) => {
    })
 })
 
-
 app.use(express.static('public'));
-app.listen(3000, () => console.log("listening on Port 3000"));
+
+let port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`listening on ${port}...`));
