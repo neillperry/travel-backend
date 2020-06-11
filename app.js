@@ -10,7 +10,8 @@ let Post = require('./models/post').Post;
 app.set('view engine', 'ejs');
 
 // CONNECT TO DATABASE
-const url = 'mongodb://localhost/travels';
+// const url = 'mongodb://localhost/travels';
+const url = 'mongodb+srv://dbUser_Neill:RRI9CxumzBZ0y9h5m@cluster0-aq0fo.mongodb.net/star-wars';
 mongoose.Promise = global.Promise;
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     console.log("connected to the database");
