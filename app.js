@@ -5,6 +5,7 @@ let multer = require('multer');
 let postsRouter = require('./routes/posts');
 let callbackRequestRouter = require('./routes/callback-requests');
 let emailRouter = require('./routes/emails');
+let Post = require('./models/post').Post;
 
 app.set('view engine', 'ejs');
 
@@ -29,12 +30,14 @@ app.use('/posts', postsRouter);
 app.use('/callback-requests', callbackRequestRouter);
 app.use('/emails', emailRouter);
 
-app.get('/sight', (request, response) => {
+app.get('/sight', async (request, response) => {
+   let id = request.query.id;
+   let post = await Post.findOne({id: id});
    response.render('sight', {
-      title: 'Big Ben',
-      imageURL: 'https://cdn.pixabay.com/photo/2017/06/11/18/03/london-2393098__340.jpg',
-      date: '2021-07-04',
-      text: 'Big Ben text.'
+      title: post.title,
+      imageURL: post.imageURL,
+      date: post.date,
+      text: post.text
    })
 })
 
